@@ -15,7 +15,10 @@ With this library:
 - You can save effort letting Simple Lock to **manage the pin codes persistence**
 - **Security**: Simple Lock always hash the pins before saving
 
-##Installation
+### TODO
+- Give the option to configure encryption algorithm. Currently always using Sha1.
+
+## Installation
 Add these line to your dependencies section in your `build.gradle` file.
 ```
 compile 'es.garce.simplelock:simplelock:1.0.1'
@@ -31,7 +34,7 @@ dependencies {
 }
 ```
 
-##Quick Start
+## Quick Start
 There are 3 important classes to know:
 >SimpleLock: Used to configure and save your settings
 
@@ -39,7 +42,7 @@ There are 3 important classes to know:
 
 >SimpleLockNewActivity: The Activity that will let you set your new pin
 
-#####Setup your preferences with SimpleLock:
+##### Setup your preferences with SimpleLock:
 ```
 SimpleLock.configure(this, true, true, 1, 6, true);
 ```
@@ -56,7 +59,7 @@ if (!SimpleLock.isInit(this))
     SimpleLock.configure(this, true, true, 1, 6, true);
 ```
 
-#####Create a new pin:
+##### Create a new pin:
 ```
         SimpleLockNewActivity.newPin(this, new OnNewPin() {
             @Override
@@ -80,12 +83,12 @@ Listener interface implementation created inline. You can always implement the i
 ```
         SimpleLockNewActivity.newPin(this, this, 1, "MAIN");
 ```
-Or implement it on other class
+Or implement it in another class
 ```
         SimpleLockNewActivity.newPin(this, MyOnNewPinImplementation, 1, "MAIN");
 ```
 
-#####Ask the user for a pin:
+##### Ask the user for a pin:
 ```
         SimpleLockActivity.requestPin(this, new OnEnterPin() {
             @Override
@@ -113,4 +116,4 @@ Or implement it on other class
 ```
 You are asking for the `MAIN` pin previously saved.
 
-#####Et voilà! You have secured your application.
+##### Et voilà! You have secured your application.
